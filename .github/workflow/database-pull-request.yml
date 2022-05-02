@@ -1,0 +1,7 @@
+name: GitHub Workflow - Database Script
+
+jobs:
+  run-in-prodution:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Executado script do liquibase no pull request"
