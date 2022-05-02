@@ -1,5 +1,8 @@
 name: GitHub Workflow - Database Script
 
+on:
+  workflow_call:
+  
 jobs:
   run-in-prodution:
     runs-on: ubuntu-latest
