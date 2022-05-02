@@ -4,7 +4,7 @@ on:
   workflow_call:
   
 jobs:
-  run-in-prodution:
+  run-in-pull-request:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
