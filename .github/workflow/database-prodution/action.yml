@@ -7,4 +7,6 @@ jobs:
   run-in-prodution:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Executado script do liquibase em produção"
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo "Executado script do liquibase em produção"
