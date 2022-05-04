@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    hostname: liquibase-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'liquibase'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    networks:
+      - liquibase
+  liquibase:
+    build: . 
+    container_name: liquibase
+    hostname: liquibase
+    # entrypoint: /bin/bash
+    # command: "/usr/bin/ping localhost"
+    # environment:
+    #   - DB_HOST='localhost:3306'
+    #   - DB_NAME='liquibase'
+    #   - DB_USER='user'
+    #   - DB_PASSWORD='password'
+    volumes:
+      - ./database:/database
+    networks:
+      - liquibase
+volumes:
+  my-db:
+
+networks:
+  liquibase:
